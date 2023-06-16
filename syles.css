@@ -1,0 +1,33 @@
+body{
+   background-color: #171717;
+   color: white;
+}
+
+
+.product{
+    color: white;
+   margin-top: 40px;
+   text-align: left;
+   font-size:20px
+}
+
+h1{
+   font-size: 40px;
+   margin: 20px;
+}
+
+.logo, .block{
+
+   background-color: black;
+   color: #64db39;
+   height: 70px;
+   margin-lef: 20px;
+   font-size: 60px;
+   text-align: center;
+   
+}
+
+logo{
+   display: flex;
+}
+
