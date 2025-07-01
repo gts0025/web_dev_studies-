@@ -1,99 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <style>
-        .input{
-            color: white;
-            background-color: rgb(35, 35, 35);
-            font-size: 20px;
-            border: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
 
-        }
-        body{
-            background-color: rgb(24, 24, 24);
-            height:100%;
-            padding:10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            text-align: center;
-        }
+  <style>
+    .input {
+      color: white;
+      background-color: rgb(35, 35, 35);
+      font-size: 20px;
+      border: 0;
+      width: 80%;
+    }
 
-        .list_box{
-            width: 500px;
-            
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-        }
-        ul{
-          color: rgb(255, 255, 255);  
-          background-color:rgb(37, 37, 37);
-          height: 100%;
-          border-right: 10px;
-          font-size: 40px;
-          padding:5px;
-        }
+    .input_b {
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 110, 255);
+      font-size: 20px;
+      width: 20%;
+      border: 0;
+      cursor: pointer;
+    }
 
-         li{
-          color: rgb(255, 255, 255);  
-          background-color:rgb(37, 37, 37);
-          font-size: 20px;
-          height: 22px;
-          padding:20px;
-          text-align: left;
-          transition: 0.2s all;
-        }
-        
-      
-        li:hover{
-            font-size: 22px;
-        }
-          li:active{
-            font-size: 18px;
-        }
+    body {
+      background-color: rgb(24, 24, 24);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        .done{
-          color: rgb(89, 255, 0);  
-          background-color:rgb(27, 30, 26);
-        
-        }
-        .missed{
-          color: rgb(255, 0, 0);  
-          background-color:rgb(32, 27, 27);
-        
-        }
-        .running{
-          color: rgb(0, 153, 255);  
-          background-color:rgb(27, 29, 32);
-     
-        }
-        
+    .list_box {
+      width: 500px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
 
-    </style>
+    .button_list {
+      width: 500px;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+    }
+
+    ul {
+      color: rgb(255, 255, 255);
+      background-color: rgb(37, 37, 37);
+      height: 100%;
+      font-size: 40px;
+      padding: 5px;
+    }
+
+    li {
+      color: rgb(255, 255, 255);
+      background-color: rgb(37, 37, 37);
+      font-size: 20px;
+      height: 22px;
+      padding: 20px;
+      text-align: left;
+      transition: 0.2s all;
+    }
+
+    li:hover {
+      font-size: 22px;
+    }
+
+    li:active {
+      font-size: 18px;
+    }
+
+    .done {
+      color: rgb(89, 255, 0);
+      background-color: rgb(27, 30, 26);
+    }
+
+    .missed {
+      color: rgb(255, 0, 0);
+      background-color: rgb(32, 27, 27);
+    }
+
+    .running {
+      color: rgb(0, 153, 255);
+      background-color: rgb(27, 29, 32);
+    }
+  </style>
 </head>
 <body>
-    <div class = list_box>
-        <ul class = list>tasks
-        </ul>
-        <input type="text"  class="input" id = "sender" placeholder="write some task name">
-    </div>
-    
+  <div class="list_box">
+    <ul class="list">tasks</ul>
+  </div>
 
-<script>
-  const input = document.getElementById("sender");
-  const list = document.querySelector(".list");
+  <div class="button_list">
+    <input type="text" class="input" id="sender" placeholder="write some task name" />
+    <input type="button" class="input_b" id="sender_b" value="ADD" />
+  </div>
 
-  const statuses = ["running", "done", "missed"];
+  <script>
+    const input = document.getElementById("sender");
+    const button = document.getElementById("sender_b");
+    const list = document.querySelector(".list");
+    const statuses = ["running", "done", "missed"];
 
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
+    function addTask() {
       const taskText = input.value.trim();
       if (taskText === "") return;
 
@@ -101,7 +118,6 @@
       const formatted = taskText[0].toUpperCase() + taskText.slice(1);
 
       newTask.textContent = formatted;
-      newTask.textContent = taskText;
       newTask.classList.add("running");
 
       newTask.addEventListener("click", () => {
@@ -111,17 +127,28 @@
       list.appendChild(newTask);
       input.value = "";
     }
-  });
 
-  function cycleStatus(taskElement) {
-    // Find current status
-    let current = statuses.findIndex(status => taskElement.classList.contains(status));
-    taskElement.classList.remove(statuses[current]);
-    
-    // Go to next status
-    const next = (current + 1) % statuses.length;
-    taskElement.classList.add(statuses[next]);
-  }
-</script>
+    // Add task on Enter key
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        addTask();
+      }
+    });
+
+    // Add task on blue button click
+    button.addEventListener("click", function () {
+      addTask();
+    });
+
+    function cycleStatus(taskElement) {
+      let current = statuses.findIndex(status =>
+        taskElement.classList.contains(status)
+      );
+      taskElement.classList.remove(statuses[current]);
+
+      const next = (current + 1) % statuses.length;
+      taskElement.classList.add(statuses[next]);
+    }
+  </script>
 </body>
 </html>
