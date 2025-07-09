@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            html{
+                
+                border-color: rgb(39, 39, 39);
+                background: black;
+                scroll-behavior: smooth;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            body{
+                background:linear-gradient(rgb(22, 38, 52),rgb(70, 25, 0));
+                max-width: 1200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-self: center;
+                padding: 0;
+                
+            }
+
+            header{
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 0;
+                background-color: black;
+                color: white;
+                position: fixed;
+                top: 0;
+                left: center;
+                
+            }
+            
+            .hb{
+                background: black;
+                border: 0;
+                font-size: 30px;
+                font-weight: 700;
+                transition: 0.2s all;
+                color: rgb(255, 79, 4);
+                background: black;
+    
+            }
+
+            .hb:hover{
+                color: rgb(253, 208, 45);
+                font-size: 30px;
+                font-weight: 800px;
+                padding: 0;
+            }
+
+
+            
+            .landing{
+                display: flex;
+                flex-direction: row;
+                padding-left: 30px;
+                padding-top: 50px;
+                padding-bottom: 20px;
+                
+            }
+
+            
+
+            .action_button{
+                width: 200px;
+                height: 100px;
+                border: 2px;
+                border-radius: 10px;
+                background-color: rgb(255, 79, 4);
+                color: white;
+                font-size: 25px;
+                transition: 0.1s all;
+            }
+
+            .action_button:hover{
+                background-color: rgb(255, 185, 63);
+                font-size: 30px;
+                border: 5px;
+            }
+
+            .action_button:active{
+                transition: 0.01s all;
+                background-color: rgb(255, 211, 116);
+                font-size: 20px;
+                border: 7px;
+                
+            }
+            .data{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                width: 50%;
+                
+            }
+
+            .tittle{
+                font-size: 60px;
+                font-weight: bold;
+                color: rgb(255, 79, 4);
+                
+            }
+
+            .sub_tittle{
+                font-size: 50px;
+                font-weight: bold;
+                color: rgb(239, 239, 239);
+                
+            }
+
+            .overview{
+                font-size: 30px;
+                font-weight: bold;
+                color: rgb(141, 147, 153);
+                
+            }
+
+            .photo_side{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-left: 50px transparent solid;
+                border-right: 50px transparent solid;
+                
+            }
+            
+
+            .photo{
+                
+                height: 300px;
+                width: 300px;
+                border-radius: 300px;
+                background-color: black;
+                background-image:url("fish_image.jpg");
+                background-position: center center;
+                transition: 0.5s all;
+            }
+
+            .photo:hover{
+                box-shadow: -5px 0px 10px black ;
+                height:  320px;
+                width:  320px;
+                border-radius:160px;
+            }
+
+            .skills{
+                background-color: rgb(15, 14, 14);
+                display: flex;
+                flex-direction: column;
+               
+                height: fit-content;
+                font-size: 20px;
+                font-weight: 400;
+                color: rgb(123, 117, 117);
+                transition: 0.7s;
+            }
+
+            
+            .skills:hover{
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 60px;
+                padding-bottom: 18px;
+            }
+
+
+            .skill_list{
+
+                display: flex;
+                flex-direction: row;
+                align-items:left;
+                justify-content: left;
+                gap: 10px;
+                height: fit-content;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                transition: 1s;
+
+
+            }
+           
+            .skill_box{
+                background-color: rgb(30, 28, 28);
+                border-radius: 10px;
+                justify-content: space-between;
+                align-items: center;
+                width: 25%;
+                border: 0;
+                box-shadow: 0px 0px -5px black solid;
+                transition: 0.5s;
+            }
+
+            .skill_box:hover{
+                color: rgb(255, 247, 218);
+                width: 30%;
+                
+            }
+
+            .single{
+                font-size: 25px;
+                font-weight: 700;
+                color: rgb(240, 225, 225);
+            }
+
+
+            
+            .portfolio{
+                background: rgb(15, 14, 14);
+
+                display: flex;
+                flex-direction: column;
+                
+               
+
+                font-size: 12px;
+                font-weight: 400;
+                color: rgb(58, 58, 58);
+                transition: 0.2s;
+                border-radius: 30px;
+                border: 2px rgb(44, 36, 36) solid;
+               
+            }
+            .portfolio:hover{
+                border: 2px rgb(255, 99, 42) solid;
+               
+            }
+
+            .painting{
+                width: 25%;
+                border-radius: 30px;
+                border: 2px rgb(44, 36, 36) solid ;
+                transition: 0.1s;
+                object-fit: cover;
+            }
+            .painting:hover{
+                border: 2px rgb(255, 99, 42) solid;
+                width: 30%;
+            }
+
+
+            @media (max-width: 100px) {
+                html, body, header {
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    overflow-x: hidden; /* Prevent horizontal scrolling */
+                }
+
+                header {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 2dvh;
+                    padding-bottom: 10px;
+                    z-index: 999; /* Ensure the header stays on top */
+                    background-color: #000; /* Optional: Add a background color for clarity */
+                }
+
+                .hb {
+                    font-size: 20px;
+                }
+
+                .landing {
+                    width: 100%;
+                }
+
+                .photo_side {
+                  
+                    border-radius: 0;
+                    height: fit-content;
+                    padding: 20px;
+                }
+                .landing{
+                    flex-direction: column-reverse;
+                    width: 100%;
+                    height: fit-content;
+                    border: 0;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .overview {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    width: 100%;
+
+                    padding: 10px; /* Add some padding for better spacing */
+                    border: 0;
+                }
+                .data{
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 50px;
+                }
+                .action_button{
+                    border: 100px;
+                }
+                
+
+                .skills {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .skill_list {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .skill_box {
+                    padding: 15px;
+                    width: 100%;
+                    border: 0;
+                    overflow-wrap: break-word; /* Handle long text by breaking words */
+                    word-wrap: break-word;
+                    word-break: break-word;
+                    text-align: center; /* Ensure the text looks aligned */
+                }
+
+                .skill_box:hover {
+                    padding: 15px;
+                    width: 100%;
+                    border: 0;
+                }
+
+                .abount {
+                    width: 100%;
+                }
+            }
+
+ 
+
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <a href = "#home"><button class="hb">
+                Home
+            </button></a>
+    
+            <a href = "#about"><button class="hb">
+                About Me
+            </button></a>
+    
+            <a href = "#portfolio"><button class="hb">
+                Portfolio
+            </button></a>
+    
+            <button class="hb">
+                testimonials
+            </button>
+        </header>
+
+        <div class = "landing" id = "home">
+            <div class = "data">
+                <p class = "tittle">
+                    digital artist
+                </p>
+
+                <p class = "overview">
+                    Hi, i'm Guilherme Nascimento, digital and  
+                    generative artist with front end skills
+                </p>
+
+                <button class = "action_button">click me</button>
+            </div>
+            <div class = "photo_side">
+                <div class = "photo"></div>
+            </div>
+        </div>
+        <div class = "skills">
+            <p class = "sub_tittle">
+                My Expertise 
+            </p>
+            <div class = "skill_list">
+
+                <div class = "skill_box">
+                    <p class = "single">
+                        painting
+                    </p>
+                    <p>
+                        Some years of digital with Krita,
+                        Ibis Paint and others</p>
+                </div>
+
+                <div class = "skill_box">
+                    <p class = "single">
+                        3d work
+                    </p>
+
+                    <p>
+                        experience with voxel box 
+                        and blender including asset modeling 
+                        and texturing
+                    </p>
+                </div>
+
+                <div class = "skill_box">
+                    <p class = "single">
+                        web-dev 
+                    </p>
+
+                    <p>
+                        basic html and css for 
+                        web design including some experience 
+                        with p5 js for generative art
+
+                    </p>
+                </div>
+
+                <div class = "skill_box">
+                    <p class = "single">
+                        codding/math
+                    </p>
+
+                    <p>
+                        basic python with pygame,  
+                        and matplotlib
+                        and some experience using 
+                        numerical methods
+                         
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class = "landing" id = about>
+
+            <div class = "data">
+
+                <p class = "overview">
+                    hi, i'm Random Guy, a Web Designer 
+                    with a thousand years of experience
+                    and some more random text: aaslkdasm saldkmaslkd
+                    lasmdlka alskdmas aslçdmaçls aslkmdlas
+                    aslçdmas aslçdma aslçmdasd asçlmdasd 
+                    lçasmdçals alsçdmç aslçmd aslçmd
+                    alçsmdalçs aslçdmasdl asçldmaslçd
+                     aslçdmasd alsçmda aslçdmas aslçdma
+                     and some more random text: aaslkdasm saldkmaslkd
+                    lasmdlka alskdmas aslçdmaçls aslkmdlas
+                    aslçdmas aslçdma aslçmdasd asçlmdasd 
+                    lçasmdçals alsçdmç aslçmd aslçmd
+                    alçsmdalçs aslçdmasdl asçldmaslçd
+                     aslçdmasd alsçmda aslçdmas aslçdma
+                </p>
+            </div>
+        </div>
+        <div class = "portfolio">
+            <p class = "sub_tittle" id="portfolio">
+                portfolio
+            </p>
+            <div class =  "images">
+            <img class = "painting" src="3d-tree.png" alt = "3d model">
+            <img class = "painting" src="house.jpg"  alt = "painting">
+            <img class = "painting" src="abstract.png" alt = "generative">
+            </div>
+        </div>
+    </body>
+</html>
