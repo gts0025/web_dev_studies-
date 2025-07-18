@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id = "message">hi there</h1>
+    <button id="myButton">chill</button>
+</body>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ffffff;
+        color: #000000;
+
+    }
+    button {
+        font-size: 20px;
+        height: 25px;
+        width: 150px;
+        background-color: #5744c5;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.1s;
+    }   
+
+    button:hover {
+
+        font-size: 25px;        
+    }
+
+    button:active {
+        font-size: 15px;        
+    }
+
+    .shake {
+    animation: shake 0.1s infinite;
+    background-color: #000000;
+    color: #ffffff;
+    }
+
+
+
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        25% { transform: translate(-1px, -2px) rotate(-1deg); }
+        50% { transform: translate(-3px, 0px) rotate(1deg); }
+        75% { transform: translate(3px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -1px) rotate(1deg); }
+    }
+
+</style>
+<script>
+    //add some timer
+    let message;
+    let timeoutId;
+
+    function resetMessage() {
+        message = document.getElementById("message");
+        message.textContent = "hi there";
+    }
+    // body gets warmer and warmer
+    let backgroundColor;
+    // button gets bigger and bigger
+    // text gets more and more aggressive
+    // after 5 seconds, reset to original state
+
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("DOM fully loaded and parsed");
+        message = document.getElementById("message");
+        timeoutId = setTimeout(resetMessage, 5000);
+
+        document.getElementById("myButton").addEventListener("click", function() {
+            message = document.getElementById("message");
+            backgroundColor = document.body.style.backgroundColor;
+            
+            switch (message.textContent) {
+                case "hi there":
+                    message.textContent = "shut it";
+                    document.body.style.backgroundColor = "#ffb3b3";
+                    break;
+
+                case "shut it":
+                    message.textContent = "i said shut it";
+                    document.body.style.backgroundColor = "#ff3c3c";
+                    break;
+                
+                case "i said shut it":
+                    // add ".shake class" to the button
+                    this.classList.add("shake");
+                    message.textContent = "fuck i said shut it";
+                    document.body.style.backgroundColor = "#ff0000";
+                    document.body.style.color = "#ffffff";
+                    break;
+
+
+            }
+            
+
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function() {
+                resetMessage();
+                document.body.style.backgroundColor = "#ffffff";
+                document.body.style.color = "#000000";
+                document.getElementById("myButton").classList.remove("shake");
+            }, 2000);
+        });
+    });
+</script>
+</html>
