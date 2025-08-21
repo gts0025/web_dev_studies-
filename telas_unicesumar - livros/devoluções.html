@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Devoluções</title>
+</head>
+<body>
+  <!-- Pesquisa de Empréstimo -->
+  <div class="main">
+    <h1>Devoluções</h1>
+
+    <label for="idEmprestimo">ID do Empréstimo</label>
+    <input type="number" id="idEmprestimo">
+
+    <div class="second">
+      <button class="bottom_button">Pesquisar</button>
+      <button class="bottom_button">Registrar </button>
+      <button onclick="location.href='Inicial.html'" class="bottom_button">sair
+    </div>
+  </div>
+
+  <!-- Dados do Empréstimo e do Aluno -->
+  <div class="main">
+    <h2>Dados do Empréstimo</h2>
+    <p>ID: <span id="dadosId">123</span></p>
+    <p>Data do Empréstimo: <span id="dadosEmprestimo">01/08/2025</span></p>
+    <p>Data de Devolução: <span id="dadosDevolucao">15/08/2025</span></p>
+
+    <h2>Dados do Aluno</h2>
+    <p>Nome: <span id="dadosAluno">João Silva</span></p>
+  </div>
+
+  <!-- Tabela de Livros Emprestados -->
+  <div class="main">
+    <h2>Livros do Empréstimo</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID do Livro</th>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Quantidade</th>
+          <th>Data de Devolução</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>101</td>
+          <td>O Senhor dos Anéis</td>
+          <td>J.R.R. Tolkien</td>
+          <td>1</td>
+          <td>15/08/2025</td>
+        </tr>
+        <tr>
+          <td>203</td>
+          <td>Dom Casmurro</td>
+          <td>Machado de Assis</td>
+          <td>1</td>
+          <td>15/08/2025</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

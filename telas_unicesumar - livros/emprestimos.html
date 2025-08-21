@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Empréstimos</title>
+</head>
+<body>
+  <!-- Dados do Empréstimo -->
+  <div class="main">
+    <h1>Empréstimos</h1>
+
+    <label for="idEmprestimo">ID do Empréstimo</label>
+    <input type="number" id="idEmprestimo" required>
+
+    <label for="aluno">Aluno</label>
+    <select id="aluno" required>
+      <option value="">Selecione</option>
+      <option value="1">João Silva</option>
+      <option value="2">Maria Souza</option>
+      <option value="3">Carlos Oliveira</option>
+    </select>
+
+    <label for="dataEmprestimo">Data do Empréstimo</label>
+    <input type="date" id="dataEmprestimo" required>
+
+    <label for="dataDevolucao">Data de Devolução</label>
+    <input type="date" id="dataDevolucao" required>
+  </div>
+
+  <!-- Botões principais -->
+  
+    <div class = "second">
+        <button class="bottom_button">novo
+        </button>
+
+        <button class="bottom_button">editar
+        </button>
+
+        <button class="bottom_button">gravar
+        </button>
+    
+        <button class="bottom_button">excuir
+        </button>
+  
+        <button onclick="location.href='Inicial.html'" class="bottom_button">sair
+        </button>
+    </div>
+
+  <!-- Livros Emprestados -->
+  <div class="main">
+    <h2>Livros Emprestados</h2>
+
+    <label for="idLivro">ID do Livro</label>
+    <input type="number" id="idLivro">
+
+    <div class="second">
+      <button class="bottom_button">Incluir</button>
+      <button class="bottom_button">excluir</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID do Livro</th>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>101</td>
+          <td>O Senhor dos Anéis</td>
+          <td>J.R.R. Tolkien</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>203</td>
+          <td>Dom Casmurro</td>
+          <td>Machado de Assis</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
