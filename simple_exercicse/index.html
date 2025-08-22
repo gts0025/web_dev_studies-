@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>little project</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.1;
+        }
+        
+      
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="resistor_list">
+        <h2>calculate resistance</h2>
+        <div>
+            <label> R1</label>
+            <input type="number" class = "resistor">
+        </div>
+
+    </div>
+    <div class="buttons">
+        <label for="parallel">parallel</label>
+        <input type ="checkbox" id = parallel>
+        <button onclick="relative()">run</button>
+        <button onclick="add()" >add new </button>
+        <p id = "answer"> relative resistance: 0.0</p>
+    </div>
+    
+    
+
+    <script>
+        
+
+        function add(){
+            let resistor_list = document.querySelector(".resistor_list")
+            let data = document.querySelectorAll(".resistor");
+
+            new_label = document.createElement("label");
+            new_label.textContent = "R"+data.length +" "
+
+            new_resistor = document.createElement("input");
+            new_resistor.setAttribute("type","number");
+            new_resistor.setAttribute("class","resistor");
+
+            new_div = document.createElement("div")
+            new_div.appendChild(new_label)
+            new_div.appendChild(new_resistor)
+            
+            resistor_list.appendChild(new_div)
+
+        }
+
+        function relative(){
+            let resistors = []
+            let data = document.querySelectorAll(".resistor");
+            let parallel = document.getElementById("parallel").checked;
+            let p = document.getElementById("answer")
+            let r = 0
+
+            for (let resistor of data){
+                    if(Number(resistor.value) > 0){
+                        resistors.push(Number(resistor.value))           
+                        }
+                    else{
+                         p.textContent = "invalid"
+                         return 
+                    }
+
+            } 
+
+            
+            if (parallel){
+                
+                
+                for(let i = 0; i  < resistors.length; i ++){
+                        r += 1/resistors[i]
+                    
+                }
+                p.textContent = "relative resistance:"+ 1/r
+            }else{
+                
+                for(let i = 0; i  < resistors.length; i ++){
+                    r += resistors[i]
+                }
+                p.textContent = "relative resistance: "+r
+                }
+                
+            }
+        
+
+    </script>
+</body>
+
+</html>
