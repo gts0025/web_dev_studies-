@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <style>
+
+        html, body {
+            padding:0px;
+            margin:0px;
+            border:0px;
+            min-width: 100%;
+            min-height: 100vh;
+        }
+
+        html{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(26, 26, 28, 0.252);
+            
+        }
+
+         body{
+            background-color: rgb(22, 22, 22);
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-color: white;
+            
+        } 
+
+        .message_box{
+            background-color: transparent;
+            padding: 10px 10px 10px 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: left;
+            justify-content: flex-start;
+            max-width: 70vh;
+           
+            
+        } 
+
+        .message{
+            background-color: rgb(52, 52, 52);
+            color: rgb(206, 206, 206);
+            border-radius: 10px;
+            padding: 10px 10px 10px 10px;
+            
+            min-width: 10px;
+            max-width: 100%;
+            
+            word-wrap: break-word;  
+            word-break: break-word; 
+            overflow-wrap: break-word; 
+
+        } 
+
+       
+        
+
+           header{
+            position: fixed;
+            top: 0px;
+            background-color: rgb(42, 42, 42);
+            border-radius: 200px;
+
+        }
+
+
+         footer{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            bottom: 0px;
+            background-color: rgb(41, 41, 41);
+            border-radius: 10px;
+            padding: 10px 10px 10px 10px;
+            
+            
+
+        }
+
+
+        textarea{
+
+            height: fit-content;
+            height: auto;
+            background-color: transparent;
+            border-radius: 200px;
+            padding: 0px 10px 00px 10px;
+            color: #c2c2c2;
+
+        }
+
+        textarea::selection{
+            background-color: "transparent";
+
+        }
+        
+
+        button{
+            display: flex;
+            background-color: transparent;
+            border-radius: 44px;
+            padding: 100, 10px, 0 , 40px;
+            color: #c2c2c2;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+       
+    </style>
+</head>
+
+
+
+<body>
+
+    <header>
+        <div class="left">
+            <img class="profile">
+        </div>
+
+        <div class="rigth">
+            <img class="profile">
+        </div>
+
+    </header>
+
+    <div class="messages">
+
+    </div>
+
+    <footer>
+        
+        <textarea id="text" placeholder="some text"></textarea>
+        <button onclick="send()">send</button>
+        
+    </footer>
+
+</body>
+
+<script>
+   
+    messages = document.querySelector(".messages")
+    for(let i = 0; i < 5; i ++){
+        container = document.createElement("div")
+        container.textContent = "some random message"
+        message_box = document.createElement("div")
+        message_box.classList.add("message_box")
+        container.classList.add("message")
+        message_box.appendChild(container)
+        messages.appendChild(message_box)
+    }
+
+    function send(){
+        container = document.createElement("div")
+        container.textContent = document.querySelector("textarea").value
+        message_box = document.createElement("div")
+        message_box.classList.add("message_box")
+        message_box.style.justifyContent = "flex-end";
+        container.style.backgroundColor = "#284f85";
+        
+        container.classList.add("message")
+        message_box.appendChild(container)
+        messages.appendChild(message_box)
+    }
+    
+</script>
+</html>

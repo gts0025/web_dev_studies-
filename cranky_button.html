@@ -7,8 +7,8 @@
 </head>
 <body>
 
-    <h1 id = "message">hi there</h1>
-    <button id="myButton">chill</button>
+    <h1 id = "message">zzzz..</h1>
+    <button id="myButton">hi</button>
 </body>
 
 <style>
@@ -59,6 +59,8 @@
         100% { transform: translate(1px, -1px) rotate(1deg); }
     }
 
+    
+
 </style>
 <script>
     //add some timer
@@ -67,7 +69,7 @@
 
     function resetMessage() {
         message = document.getElementById("message");
-        message.textContent = "hi there";
+        message.textContent = "zzzz..";
     }
     // body gets warmer and warmer
     let backgroundColor;
@@ -85,7 +87,7 @@
             backgroundColor = document.body.style.backgroundColor;
             
             switch (message.textContent) {
-                case "hi there":
+                case "zzzz..":
                     message.textContent = "shut it";
                     document.body.style.backgroundColor = "#ffb3b3";
                     break;
