@@ -11,7 +11,10 @@
             align-items: center;
             justify-content: center;
             transition: all 0.1;
+            background-color: rgb(41, 41, 41);
+            color: white;
         }
+
         
       
 
@@ -22,10 +25,6 @@
     
     <div class="resistor_list">
         <h2>calculate resistance</h2>
-        <div>
-            <label> R1</label>
-            <input type="number" class = "resistor">
-        </div>
 
     </div>
     <div class="buttons">
@@ -48,6 +47,14 @@
             new_label = document.createElement("label");
             new_label.textContent = "R"+data.length +" "
 
+            delete_button = document.createElement("button");
+            delete_button.textContent = "x"
+            delete_button.setAttribute("class","remove")
+
+            delete_button.addEventListener("click", function () {
+                delete_button.parentElement.remove();
+            });
+
             new_resistor = document.createElement("input");
             new_resistor.setAttribute("type","number");
             new_resistor.setAttribute("class","resistor");
@@ -55,10 +62,13 @@
             new_div = document.createElement("div")
             new_div.appendChild(new_label)
             new_div.appendChild(new_resistor)
+            new_div.appendChild(delete_button)
             
             resistor_list.appendChild(new_div)
 
         }
+
+      
 
         function relative(){
             let resistors = []
