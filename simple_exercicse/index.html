@@ -5,15 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>little project</title>
     <style>
+        html{
+            transition: all 1s;
+            height:100%;
+        }
         body{
+            display: flex;
+            margin:auto;
+            height:100%;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s;
+            background-color: rgb(0, 0, 0);
+            color: rgb(223, 223, 223);
+  
+        }
+
+        .main {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.1;
-            background-color: rgb(41, 41, 41);
-            color: white;
+            width: 400px;
+            border-radius: 20px
+           ; 
+            background-color: rgb(19, 19, 19);
+          
+           
         }
+
+
+        .container{
+            display: flex;
+            background-color: rgb(27, 27, 27);
+            padding: 10px;
+            border-radius: 10px;
+            gap: 10px;
+            justify-content: space-between;
+            
+        }
+
+        .resistor{
+           background-color:  rgb(41, 41, 41);
+           border-color: transparent;
+           color: rgb(176, 176, 176);
+           
+        }
+
+        .remove{
+           background-color:  rgb(151, 12, 12);
+           color: rgb(255, 83, 31);
+           border: 100px; 
+
+           
+        }
+
 
         
       
@@ -23,18 +69,21 @@
 </head>
 <body>
     
-    <div class="resistor_list">
-        <h2>calculate resistance</h2>
+    <div class = "main">
 
+        <div class="resistor_list">
+            <h2>calculate resistance</h2>
+
+        </div>
+        <div class="buttons">
+            <label for="parallel">parallel</label>
+            <input type ="checkbox" id = parallel>
+            <button onclick="relative()">run</button>
+            <button onclick="add()" >add new </button>
+            <p id = "answer"> relative resistance: 0.0</p>
+        </div>
+        
     </div>
-    <div class="buttons">
-        <label for="parallel">parallel</label>
-        <input type ="checkbox" id = parallel>
-        <button onclick="relative()">run</button>
-        <button onclick="add()" >add new </button>
-        <p id = "answer"> relative resistance: 0.0</p>
-    </div>
-    
     
 
     <script>
@@ -44,10 +93,10 @@
             let resistor_list = document.querySelector(".resistor_list")
             let data = document.querySelectorAll(".resistor");
 
-            new_label = document.createElement("label");
+            let new_label = document.createElement("label");
             new_label.textContent = "R"+data.length +" "
 
-            delete_button = document.createElement("button");
+            let delete_button = document.createElement("button");
             delete_button.textContent = "x"
             delete_button.setAttribute("class","remove")
 
@@ -55,11 +104,12 @@
                 delete_button.parentElement.remove();
             });
 
-            new_resistor = document.createElement("input");
+            let new_resistor = document.createElement("input");
             new_resistor.setAttribute("type","number");
             new_resistor.setAttribute("class","resistor");
 
-            new_div = document.createElement("div")
+            let new_div = document.createElement("div")
+            new_div.setAttribute("class","container");
             new_div.appendChild(new_label)
             new_div.appendChild(new_resistor)
             new_div.appendChild(delete_button)
@@ -90,22 +140,24 @@
 
             
             if (parallel){
-                
-                
                 for(let i = 0; i  < resistors.length; i ++){
                         r += 1/resistors[i]
                     
                 }
-                p.textContent = "relative resistance:"+ 1/r
-            }else{
+                r = 1/r;
+            }
+            
+            else{
                 
                 for(let i = 0; i  < resistors.length; i ++){
                     r += resistors[i]
                 }
-                p.textContent = "relative resistance: "+r
-                }
-                
+            
             }
+
+            p.textContent = "relative resistance " + r.toFixed(2);
+                
+        }
         
 
     </script>
