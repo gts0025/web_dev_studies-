@@ -1,34 +1,54 @@
-html body {
-    border: 0px;
+html, body {
     height: 100%;
     width:  100%;
     background-color: black;
-
-}
-
-body{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
- 
 .task{
     background-color: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
 
     font-size: 30px;
     font-weight: bold;
-    color: green;
     border-color: green;
     min-width: 300px;
-    padding: 20px;
+    padding: 30px;
     
+}
+
+
+.main_bar{
+    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+button{
+ border: none;
+ background-color: green;
+ color: white;
+ font-size: 30px; 
+ width: 40px;
+ height: 40px;
+ border-radius: 10px;  
+}
+
+button:hover{
+    background-color: rgb(50, 187, 50);
+}
+
+button:active{
+    background-color: rgb(134, 255, 134);
 }
 
 .date{
@@ -38,7 +58,6 @@ body{
     color: green;
     font-weight: bold;
     font-size: large;
-    border: 0px;
     padding: 10px 0px 10px 0px;
 }
 
