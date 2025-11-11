@@ -45,9 +45,16 @@
             
         }
 
+        .hidden{
+            transform: scale(0);
+            opacity: 0;
+            transition: 0.1s;
+        }
         .resistor{
            background-color:  rgb(41, 41, 41);
            border-color: transparent;
+           transition:  0.1s;
+           transform: scale(1);
            color: rgb(176, 176, 176);
            
         }
@@ -58,6 +65,13 @@
            border: 100px; 
 
            
+        }
+
+        .resistor_list{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: space-evenly;
         }
 
 
@@ -108,13 +122,27 @@
             new_resistor.setAttribute("type","number");
             new_resistor.setAttribute("class","resistor");
 
+            
+            
+            setTimeout(show,100,new_resistor)
+
             let new_div = document.createElement("div")
-            new_div.setAttribute("class","container");
+            new_div.classList.add("hidden")
+
+            function show (container){
+                container.classList.remove("hidden");
+            }
+            setTimeout(show, 300,new_div)
+
             new_div.appendChild(new_label)
             new_div.appendChild(new_resistor)
             new_div.appendChild(delete_button)
+
+
             
             resistor_list.appendChild(new_div)
+
+
 
         }
 
@@ -158,7 +186,7 @@
             p.textContent = "relative resistance " + r.toFixed(2);
                 
         }
-        
+        setInterval(relative, 100);
 
     </script>
 </body>
